@@ -36,7 +36,10 @@ export default function EmailForm() {
 
     try {
       setLoading(true);
-      await axios.post('http://localhost:5000/api/send-email', emailData); // Backend should handle scheduling
+      await axios.post(
+        'https://hospitalcrmserver-production.up.railway.app/api/send-email',
+        emailData
+      ); // Backend should handle scheduling
       toast.success('Email sent or scheduled successfully!');
       setEmailLog((prevLog) => [
         ...prevLog,
@@ -73,10 +76,13 @@ export default function EmailForm() {
   const handleUpdateGroup = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/update-group', {
-        groupId: updateGroup,
-        email: newEmail,
-      });
+      await axios.post(
+        'https://hospitalcrmserver-production.up.railway.app/api/update-group',
+        {
+          groupId: updateGroup,
+          email: newEmail,
+        }
+      );
       toast.success('Email added to group successfully!');
       setNewEmail('');
       setShowUpdateForm(false);
