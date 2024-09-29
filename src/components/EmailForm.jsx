@@ -11,12 +11,12 @@ export default function EmailForm() {
   const [message, setMessage] = useState('');
   const [patients, setPatients] = useState([]);
   const [schedule, setSchedule] = useState(null);
-  const [emailLog, setEmailLog] = useState([]); 
-  const [isLogVisible, setIsLogVisible] = useState(false); 
+  const [emailLog, setEmailLog] = useState([]);
+  const [isLogVisible, setIsLogVisible] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [updateGroup, setUpdateGroup] = useState(''); 
-  const [newEmail, setNewEmail] = useState(''); 
-  const [showUpdateForm, setShowUpdateForm] = useState(false); 
+  const [updateGroup, setUpdateGroup] = useState('');
+  const [newEmail, setNewEmail] = useState('');
+  const [showUpdateForm, setShowUpdateForm] = useState(false);
 
   const patientGroups = [
     { id: 'cancer', name: 'Cancer Patients' },
@@ -210,14 +210,13 @@ export default function EmailForm() {
           )}
         </button>
         <button
+          type="button"
           className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-2 rounded-lg my-4 w-full hover:bg-blue-700 transition"
           onClick={() => setShowUpdateForm(true)}
         >
           Update Patient Group Emails
         </button>
       </form>
-
-      
 
       {/* Update Patient Group Form */}
       {showUpdateForm && (
